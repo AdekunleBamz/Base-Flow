@@ -1,14 +1,52 @@
+'use client';
+
 import dynamicImport from 'next/dynamic';
+import { useEffect, useState } from 'react';
 import { Web3Provider } from '@/components/Web3Provider';
 
-// Force dynamic rendering - required for wagmi/rainbowkit localStorage usage
+// Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-// Dynamic import to avoid SSR issues with wagmi
+// Dynamic imports to avoid SSR issues
 const SwapCard = dynamicImport(() => import('@/components/SwapCard'), { ssr: false });
 const TransactionHistory = dynamicImport(() => import('@/components/TransactionHistory'), { ssr: false });
+const MiniAppView = dynamicImport(() => import('@/components/MiniAppView'), { ssr: false });
 
 export default function Home() {
+  const [isInFrame, setIsInFrame] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Detect if we're in a Farcaster frame
+    const checkFrame = async () => {
+      try {
+        // Check for Farcaster SDK
+        const sdk = await import('@farcaster/frame-sdk');
+        const context = await sdk.default.context;
+        setIsInFrame(!!context);
+      } catch {
+        setIsInFrame(false);
+      }
+      setIsLoading(false);
+    };
+    checkFrame();
+  }, []);
+
+  // Show loading state briefly
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#0a0b0d]">
+        <div className="text-4xl animate-pulse">🌊</div>
+      </div>
+    );
+  }
+
+  // Render MiniApp view if in Farcaster
+  if (isInFrame) {
+    return <MiniAppView />;
+  }
+
+  // Regular web app
   return (
     <Web3Provider>
       <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0a0b0d] via-[#0f172a] to-[#0a0b0d]">

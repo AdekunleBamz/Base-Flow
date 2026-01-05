@@ -120,11 +120,36 @@ export default function SwapCard() {
   });
 
   // Write contract hooks
-  const { writeContract, data: txHash, isPending: isWritePending } = useWriteContract();
+  const { writeContract, data: txHash, isPending: isWritePending, error: writeError } = useWriteContract();
   
   const { isLoading: isTxLoading, isSuccess: isTxSuccess } = useWaitForTransactionReceipt({
     hash: txHash,
   });
+
+  // Handle write errors
+  useEffect(() => {
+    if (writeError) {
+      console.error('Write contract error:', writeError);
+      setSwap(prev => ({ 
+        ...prev, 
+        loading: false, 
+        error: writeError.message?.slice(0, 100) || 'Transaction failed' 
+      }));
+    }
+  }, [writeError]);
+
+  // Reset loading state when transaction hash is received or tx succeeds
+  useEffect(() => {
+    if (txHash) {
+      setSwap(prev => ({ ...prev, loading: false }));
+    }
+  }, [txHash]);
+
+  useEffect(() => {
+    if (isTxSuccess) {
+      setSwap(prev => ({ ...prev, loading: false, fromAmount: '', toAmount: '' }));
+    }
+  }, [isTxSuccess]);
 
   // Get balance for token
   const getBalance = useCallback((token: TokenKey): string => {

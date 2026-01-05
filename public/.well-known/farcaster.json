@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjAsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIn0",
+    "payload": "eyJkb21haW4iOiJiYXNlLWZsb3ctNHB6bDB2NDB6LWJhbXp6cy1wcm9qZWN0cy52ZXJjZWwuYXBwIn0",
+    "signature": "MHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Baseflow",
+    "iconUrl": "https://base-flow-4pzl0v40z-bamzzs-projects.vercel.app/icon.png",
+    "homeUrl": "https://base-flow-4pzl0v40z-bamzzs-projects.vercel.app",
+    "imageUrl": "https://base-flow-4pzl0v40z-bamzzs-projects.vercel.app/api/image",
+    "buttonTitle": "🌊 Swap Tokens",
+    "splashImageUrl": "https://base-flow-4pzl0v40z-bamzzs-projects.vercel.app/splash.png",
+    "splashBackgroundColor": "#0a0b0d",
+    "webhookUrl": "https://base-flow-4pzl0v40z-bamzzs-projects.vercel.app/api/webhook"
+  }
+}

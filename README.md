@@ -4,11 +4,16 @@ A beautiful **token swap interface** for Base that works as both a **standalone 
 
 ## ✨ Features
 
-- 🌐 **Standalone Web App** - Full swap interface with wallet connection
+- 🌐 **Standalone Web App** - Full swap interface with wallet connection via RainbowKit
 - 📱 **Farcaster Frame** - Embedded swaps directly in Warpcast
-- ⚡ **Real Mainnet** - Uses Uniswap V3 pools on Base
+- ⚡ **Real Mainnet** - Uses Uniswap V3 pools on Base L2
 - 💧 **No Liquidity Needed** - Routes through existing DEX liquidity
-- 🎨 **Beautiful UI** - Dark theme with smooth animations
+- 🎨 **Beautiful UI** - Dark theme with smooth animations and micro-interactions
+- 📊 **Price Charts** - Real-time price data and 24h trends
+- 🔄 **Transaction History** - Track all your swaps with persistent storage
+- ⚙️ **Advanced Settings** - Customizable slippage and deadline
+- 🔔 **Toast Notifications** - Instant feedback on all actions
+- 🎯 **Gas Estimation** - See estimated transaction costs before swapping
 
 ## 🚀 Quick Start
 

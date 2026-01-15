@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ethers } from 'ethers';
+import type { QuoteResponse, ApiError } from '@/types/api';
 
 const RPC_URL = process.env.NEXT_PUBLIC_BASE_RPC_URL || 'https://mainnet.base.org';
 
@@ -52,15 +53,39 @@ export async function GET(req: NextRequest) {
     const to = searchParams.get('to')?.toUpperCase();
     const amount = searchParams.get('amount');
 
+    // Validate parameters
     if (!from || !to || !amount) {
-      return NextResponse.json({ error: 'Missing parameters' }, { status: 400 });
+      return NextResponse.json<ApiError>(
+        { error: 'Missing required parameters: from, to, amount' },
+        { status: 400 }
+      );
+    }
+
+    // Validate amount is a valid number
+    const amountNum = parseFloat(amount);
+    if (isNaN(amountNum) || amountNum <= 0) {
+      return NextResponse.json<ApiError>(
+        { error: 'Amount must be a positive number' },
+        { status: 400 }
+      );
     }
 
     const fromToken = TOKENS[from];
     const toToken = TOKENS[to];
 
     if (!fromToken || !toToken) {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 400 });
+      return NextResponse.json<ApiError>(
+        { error: `Invalid token. Supported tokens: ${Object.keys(TOKENS).join(', ')}` },
+        { status: 400 }
+      );
+    }
+
+    // Prevent swapping same token
+    if (from === to) {
+      return NextResponse.json<ApiError>(
+        { error: 'Cannot swap the same token' },
+        { status: 400 }
+      );
     }
 
     const provider = new ethers.JsonRpcProvider(RPC_URL);

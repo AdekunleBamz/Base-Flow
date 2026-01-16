@@ -20,16 +20,16 @@ export function mockLocalStorage() {
   const store: Record<string, string> = {};
 
   return {
-    getItem: jest.fn((key: string) => store[key] || null),
-    setItem: jest.fn((key: string, value: string) => {
+    getItem: (key: string) => store[key] || null,
+    setItem: (key: string, value: string) => {
       store[key] = value;
-    }),
-    removeItem: jest.fn((key: string) => {
+    },
+    removeItem: (key: string) => {
       delete store[key];
-    }),
-    clear: jest.fn(() => {
+    },
+    clear: () => {
       Object.keys(store).forEach(key => delete store[key]);
-    }),
+    },
   };
 }
 
@@ -37,12 +37,11 @@ export function mockLocalStorage() {
  * Mock fetch
  */
 export function mockFetch(data: any) {
-  return jest.fn(() =>
+  return () =>
     Promise.resolve({
       json: () => Promise.resolve(data),
       ok: true,
-    })
-  );
+    } as Response);
 }
 
 /**

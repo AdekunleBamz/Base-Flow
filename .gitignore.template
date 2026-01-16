@@ -1,0 +1,36 @@
+# Editor Configuration
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+
+# Build Output
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env*.local
+.env.production
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.turbo/
+.vercel/
+*.tsbuildinfo

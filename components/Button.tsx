@@ -43,8 +43,8 @@ export function Button({
 
   return (
     <motion.button
-      whileHover={!isDisabled ? { scale: 1.02 } : {}}
-      whileTap={!isDisabled ? { scale: 0.98 } : {}}
+      whileHover={!isDisabled ? { scale: 1.02 } : undefined}
+      whileTap={!isDisabled ? { scale: 0.98 } : undefined}
       disabled={isDisabled}
       className={`
         ${variantStyles[variant]}

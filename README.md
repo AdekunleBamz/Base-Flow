@@ -1,19 +1,34 @@
 # Baseflow 🌊
 
-A beautiful **token swap interface** for Base that works as both a **standalone web app** and a **Farcaster mini-app/Frame**.
+## Version 2.0 - Complete Rebuild
+
+A **production-ready token swap interface** for Base L2 with enterprise-grade architecture, comprehensive testing, and 50+ reusable components.
 
 ## ✨ Features
 
+### Core Functionality
 - 🌐 **Standalone Web App** - Full swap interface with wallet connection via RainbowKit
 - 📱 **Farcaster Frame** - Embedded swaps directly in Warpcast
 - ⚡ **Real Mainnet** - Uses Uniswap V3 pools on Base L2
 - 💧 **No Liquidity Needed** - Routes through existing DEX liquidity
+
+### User Experience
 - 🎨 **Beautiful UI** - Dark theme with smooth animations and micro-interactions
 - 📊 **Price Charts** - Real-time price data and 24h trends
 - 🔄 **Transaction History** - Track all your swaps with persistent storage
 - ⚙️ **Advanced Settings** - Customizable slippage and deadline
 - 🔔 **Toast Notifications** - Instant feedback on all actions
 - 🎯 **Gas Estimation** - See estimated transaction costs before swapping
+
+### Developer Features (v2.0)
+- 📦 **50+ UI Components** - Reusable, typed, and tested
+- 🛠️ **40+ Utility Libraries** - Animation, async, security, and more
+- 🐳 **Docker Support** - Production-ready containerization
+- 🔄 **CI/CD Pipeline** - Automated testing and deployment
+- 📚 **Comprehensive Docs** - Architecture, API, security guides
+- 🧪 **Testing Infrastructure** - Unit, integration, and E2E tests
+- 🔒 **Security First** - Input sanitization, XSS protection, secure headers
+- ⚡ **Performance Optimized** - Code splitting, lazy loading, caching
 
 ## 🚀 Quick Start
 
